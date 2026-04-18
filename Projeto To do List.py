@@ -29,18 +29,7 @@ while True:
       continue
 
     else:
-      for i, tarefa in enumerate(atividades):
-        status = "☑️"
-        if tarefa["concluida"]:
-          print(f"{i} - {tarefa['nome']}"
-          [{status}])
-        else:
-          atividades.append({
-          "nome": atividade,
-          "concluida": False})
-        
-          
-    print(f'Suas atividades são: {atividades}')
+      print(f'Suas atividades são: {atividades}')
 
 
   elif menu == 3:
@@ -70,7 +59,9 @@ while True:
             minutos = 0
             horas += 1
 
-      
+  elif menu == 5:
+     print('Okay, bom trabalho para ti')
+     break    
         
         
   menu_ou_fim = input('Deseja voltar ao menu?(s/n)').lower().strip()
