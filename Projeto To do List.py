@@ -34,10 +34,23 @@ while True:
 
   elif menu == 3:
     indice = int(input("Qual tarefa deseja concluir? "))
-    if 0 <= indice < len(atividades):
-        atividades[indice]["concluida"] = True
+    if not atividades:
+       print('Não há tarefas para concluir')
+    
     else:
-        print("Índice inválido")
+       print("Suas atividades atuais:")
+       for i, tarefa in enumerate(atividades):
+          print(f"[{i +1}] {tarefa}")
+
+          indice = int(input("Qual o número da tarefa que deseja conluir?"))
+
+          if 1 <= indice <= len(atividades):
+             atividades[indice - 1] = atividades[indice - 1] + "[concluida]"
+             print(f"tarefa {indice} marcada como concluída!")
+          else:
+             print("número de tarefa inválido!")
+                       
+
 
 
   elif menu == 4:
@@ -68,3 +81,4 @@ while True:
   if menu_ou_fim == 'n':
     print('Okay, bom trabalho para vossa senhoria')
     break
+  print('Teste')
