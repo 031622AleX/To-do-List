@@ -68,3 +68,4 @@ while True:
   if menu_ou_fim == 'n':
     print('Okay, bom trabalho para vossa senhoria')
     break
+  print('Teste')
