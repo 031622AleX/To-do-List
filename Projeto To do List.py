@@ -33,16 +33,14 @@ while True:
 
 
   elif menu == 3:
-    indice = int(input("Qual tarefa deseja concluir? "))
     if not atividades:
        print('Não há tarefas para concluir')
     
     else:
-       print("Suas atividades atuais:")
+       print(f"Suas atividades atuais:")
        for i, tarefa in enumerate(atividades):
           print(f"[{i +1}] {tarefa}")
-
-          indice = int(input("Qual o número da tarefa que deseja conluir?"))
+          indice = int(input("Qual tarefa deseja concluir? "))
 
           if 1 <= indice <= len(atividades):
              atividades[indice - 1] = atividades[indice - 1] + "[concluida]"
