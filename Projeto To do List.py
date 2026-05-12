@@ -52,25 +52,26 @@ while True:
                        
 
 
-
   elif menu == 4:
-    horas = 0
-    minutos = 0
-    segundos = 0 
-    print('Amassa filhote!')
-    while True:
-        print(f'{horas:02d}:{minutos:02d}:{segundos:02d}', end="\r")
-        time.sleep(1)
-        segundos += 1
+      
+    def cronometro ():
+      horas = 0
+      minutos = 0
+      segundos = 0 
+      print('Amassa filhote!')
+      while True:
+          print(f'{horas:02d}:{minutos:02d}:{segundos:02d}', end="\r")
+          time.sleep(1)
+          segundos += 1
 
 
-        if segundos == 60:
-            segundos = 0
-            minutos += 1
+          if segundos == 60:
+              segundos = 0
+              minutos += 1
 
-        if minutos == 60:
-            minutos = 0
-            horas += 1
+          if minutos == 60:
+              minutos = 0
+              horas += 1
 
   elif menu == 5:
      print('Okay, bom trabalho para ti')
