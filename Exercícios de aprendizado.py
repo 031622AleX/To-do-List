@@ -5,14 +5,6 @@ pessoas.append(lista)
 print(pessoas[1][1])
 
 
-
-
-
-
-
-
-
-
 pessoa = {
     "nome": "Pedro",
     "idade": "13",
