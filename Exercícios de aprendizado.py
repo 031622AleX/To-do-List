@@ -1,8 +1,8 @@
 #listas
 valores = [['pedro', 25],['marcela', 18],['jefferson', 10]]
 lista=[]
-valores.append(lista)
-print(valores[1][1])
+pessoas.append(lista)
+print(pessoas[1][1])
 
 
 
