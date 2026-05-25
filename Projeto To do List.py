@@ -32,7 +32,10 @@ while True:
       continue
 
     else:
-      print(f'Suas atividades são: {lista_de_tarefas}')
+      print("\nSuas atividdes:")
+      for i, tarefa in enumerate(lista_de_tarefas, 1):
+          status = "✅" if tarefa["pronta"] else " "
+          print(f"  [{status}] {i}. {tarefa['tarefa']}")
 
 
   elif menu == 3:
@@ -43,7 +46,7 @@ while True:
     else:
       print("\nSuas atividdes:")
       for i, tarefa in enumerate(lista_de_tarefas, 1):
-          status = "☑️" if tarefa["pronta"] else " "
+          status = "✅" if tarefa["pronta"] else " "
           print(f"  [{status}] {i}. {tarefa['tarefa']}")
 
       try:
@@ -57,10 +60,10 @@ while True:
 
         
         else:
-           print(f'✖️ Digite um número entre 1 e {len(lista_de_tarefas)}')
+           print(f'❌ Digite um número entre 1 e {len(lista_de_tarefas)}')
 
       except ValueError:
-         print('✖️ Precisa digitar um número!')
+         print('❌ Precisa digitar um número!')
        
                        
 
