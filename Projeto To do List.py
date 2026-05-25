@@ -28,21 +28,26 @@ def cronometro ():
 
 lista_de_tarefas = []
 while True:
-  menu = int(input("""Olá, senhor!
-  Bem vindo ao guia de estudo e tarefas que fui programado para exercer!
-  O que o senhor gostaria de fazer?
-  [ 1 ] Escrever uma atividade
-  [ 2 ] Ver suas atividades
-  [ 3 ] Marcar alguma atividade como concluída
-  [ 4 ] Colocar um cronômetro para uma das atividades
-  [ 5 ] Terminar o programa""").strip())
+  try:
+    menu = int(input("""Olá, senhor!
+    Bem vindo ao guia de estudo e tarefas que fui programado para exercer!
+    O que o senhor gostaria de fazer?
+    [ 1 ] Escrever uma atividade
+    [ 2 ] Ver suas atividades
+    [ 3 ] Marcar alguma atividade como concluída
+    [ 4 ] Colocar um cronômetro para uma das atividades
+    [ 5 ] Terminar o programa""").strip())
+  
+  except ValueError:
+    print("❌Descreva o que deseja de 1 a 5")
+    continue
 
   if menu == 1:
     while True:
       atividade = input('Digite sua atividade')
       lista = {
-         "tarefa": atividade,
-         "pronta": False
+        "tarefa": atividade,
+        "pronta": False
       }
       lista_de_tarefas.append(lista)
       mais_atividade = input('Tem mais atividades? (s/n)').lower().strip()
@@ -67,7 +72,7 @@ while True:
   elif menu == 3:
     
     if not lista_de_tarefas:
-       print('Não há tarefas para concluir')
+      print('Não há tarefas para concluir')
     
     else:
       print("\nSuas atividdes:")
@@ -79,19 +84,19 @@ while True:
         numero = int(input("\nQual número deseja concluir? "))
 
         if 1 <= numero <= len(lista_de_tarefas):
-           lista_de_tarefas[numero - 1]["pronta"] = True
-           
-           nome = lista_de_tarefas[numero -1]["tarefa"]
-           print(f'✅"{nome}" marcada como concluída')
+          lista_de_tarefas[numero - 1]["pronta"] = True
+          
+          nome = lista_de_tarefas[numero -1]["tarefa"]
+          print(f'✅"{nome}" marcada como concluída')
 
         
         else:
-           print(f'❌ Digite um número entre 1 e {len(lista_de_tarefas)}')
+          print(f'❌ Digite um número entre 1 e {len(lista_de_tarefas)}')
 
       except ValueError:
-         print('❌ Precisa digitar um número!')
-       
-                       
+        print('❌ Precisa digitar um número!')
+      
+                      
 
 
   elif menu == 4:
@@ -100,8 +105,8 @@ while True:
 
   
   elif menu == 5:
-     print('Okay, bom trabalho para ti')
-     break    
+    print('Okay, bom trabalho para ti')
+    break    
         
         
   menu_ou_fim = input('Deseja voltar ao menu?(s/n)').lower().strip()
