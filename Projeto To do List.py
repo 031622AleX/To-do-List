@@ -1,5 +1,31 @@
 #Meta: Construir Programa totalmente funcional em Python
 import time
+
+def cronometro ():
+      horas = 0
+      minutos = 0
+      segundos = 0 
+      print('Amassa filhote!')
+      
+      try:
+      
+        while True:
+            print(f'{horas:02d}:{minutos:02d}:{segundos:02d}', end="\r")
+            time.sleep(1)
+            segundos += 1
+
+
+            if segundos == 60:
+                segundos = 0
+                minutos += 1
+
+            if minutos == 60:
+                minutos = 0
+                horas += 1
+      except KeyboardInterrupt:
+         print("\nCronômetro Finalizado!")
+
+
 lista_de_tarefas = []
 while True:
   menu = int(input("""Olá, senhor!
@@ -70,27 +96,9 @@ while True:
 
   elif menu == 4:
       
-    def cronometro ():
-      horas = 0
-      minutos = 0
-      segundos = 0 
-      print('Amassa filhote!')
-      while True:
-          print(f'{horas:02d}:{minutos:02d}:{segundos:02d}', end="\r")
-          time.sleep(1)
-          segundos += 1
-
-
-          if segundos == 60:
-              segundos = 0
-              minutos += 1
-
-          if minutos == 60:
-              minutos = 0
-              horas += 1
-
     cronometro()
 
+  
   elif menu == 5:
      print('Okay, bom trabalho para ti')
      break    
@@ -98,5 +106,5 @@ while True:
         
   menu_ou_fim = input('Deseja voltar ao menu?(s/n)').lower().strip()
   if menu_ou_fim == 'n':
-    print('Okay, bom trabalho para vossa senhoria')
+    print('Okay, bom trabalho para ti')
     break
