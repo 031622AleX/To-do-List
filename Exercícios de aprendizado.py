@@ -82,3 +82,23 @@ for i, v in enumerate(ranking):
 
 
 #listas de dicionários
+# Começamos com uma lista vazia. O programa não sabe quantas tarefas vão existir.
+lista_de_tarefas = []
+
+while True: # Um loop infinito para o programa continuar a correr
+    # O utilizador decide qual é a nova tarefa
+    novo_titulo = input("Digita o nome da nova tarefa (ou 'sair' para terminar): ")
+    
+    if novo_titulo == 'sair':
+        break
+        
+    # O Python constrói o dicionário NA HORA, usando o texto que o utilizador digitou
+    nova_tarefa = {
+        "titulo": novo_titulo,
+        "pronta": False
+    }
+    
+    # Colocamos o novo dicionário dentro da nossa lista vazia
+    lista_de_tarefas.append(nova_tarefa)
+    print("Tarefa adicionada!")
+    print(lista_de_tarefas)

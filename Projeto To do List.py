@@ -1,6 +1,6 @@
 #Meta: Construir Programa totalmente funcional em Python
 import time
-atividades = []
+lista_de_tarefas = []
 while True:
   menu = int(input("""Olá, senhor!
   Bem vindo ao guia de estudo e tarefas que fui programado para exercer!
@@ -14,39 +14,54 @@ while True:
   if menu == 1:
     while True:
       atividade = input('Digite sua atividade')
-      atividades.append(atividade)
-      print('=~'*20)
-    
+      lista = {
+         "tarefa": atividade,
+         "pronta": False
+      }
+      lista_de_tarefas.append(lista)
       mais_atividade = input('Tem mais atividades? (s/n)').lower().strip()
       
       if mais_atividade == 'n':
         break
+      
 
   elif menu == 2:
     
-    if not atividades:
+    if not lista_de_tarefas:
       print('Sem atividades no momento')
       continue
 
     else:
-      print(f'Suas atividades são: {atividades}')
+      print(f'Suas atividades são: {lista_de_tarefas}')
 
 
   elif menu == 3:
-    if not atividades:
+    
+    if not lista_de_tarefas:
        print('Não há tarefas para concluir')
     
     else:
-       print(f"Suas atividades atuais:")
-       for i, tarefa in enumerate(atividades):
-          print(f"[{i +1}] {tarefa}")
-          indice = int(input("Qual tarefa deseja concluir? "))
+      print("\nSuas atividdes:")
+      for i, tarefa in enumerate(lista_de_tarefas, 1):
+          status = "☑️" if tarefa["pronta"] else " "
+          print(f"  [{status}] {i}. {tarefa['tarefa']}")
 
-          if 1 <= indice <= len(atividades):
-             atividades[indice - 1] = atividades[indice - 1] + "[concluida]"
-             print(f"tarefa {indice} marcada como concluída!")
-          else:
-             print("número de tarefa inválido!")
+      try:
+        numero = int(input("\nQual número deseja concluir? "))
+
+        if 1 <= numero <= len(lista_de_tarefas):
+           lista_de_tarefas[numero - 1]["pronta"] = True
+           
+           nome = lista_de_tarefas[numero -1]["tarefa"]
+           print(f'✅"{nome}" marcada como concluída')
+
+        
+        else:
+           print(f'✖️ Digite um número entre 1 e {len(lista_de_tarefas)}')
+
+      except ValueError:
+         print('✖️ Precisa digitar um número!')
+       
                        
 
 
@@ -80,4 +95,3 @@ while True:
   if menu_ou_fim == 'n':
     print('Okay, bom trabalho para vossa senhoria')
     break
-
