@@ -89,6 +89,8 @@ while True:
               minutos = 0
               horas += 1
 
+    cronometro()
+
   elif menu == 5:
      print('Okay, bom trabalho para ti')
      break    
