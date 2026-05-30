@@ -1,32 +1,52 @@
 #Meta: Construir Programa totalmente funcional em Python
+import json
+import os
 import time
 
+def salvar_tarefa(lista_de_tarefas):
+   # 'with' abre o arquivo e garante que ele será fechado com segurança mesmo se der erro
+   # 'w' significa write (escrita). Se o arquivo não existir, o Pyrhon cria ele sozinho
+  with open("tarefas.json", "w", encoding="utf-8") as arquivo:
+   # dump: joga a lista dentro do arquivo.
+   # indent=2 faz o arquivo ficar quebrado em linhas e bonito de ler
+   json.dump(lista_de_tarefas, arquivo, indent=2, ensure_ascii=False)
+
+def carrefar_tarefas():
+   # Seo arquivo tarefas.json existir...
+   if os.path.exists("tarefas.json"):
+     # Abre o arquivo em modo 'r' (read - leitura)
+     with open("tarefas.json", "r", encoding="utf-8") as arquivo:
+            # Carrega o texto e transforma de volta em lista do Python
+            return json.load(arquivo)
+# Se o arquivo não existir (primeira execução), retorna uma lista vazia
+   return []
+
 def cronometro ():
-      horas = 0
-      minutos = 0
-      segundos = 0 
-      print('Amassa filhote!')
-      
-      try:
-      
-        while True:
-            print(f'{horas:02d}:{minutos:02d}:{segundos:02d}', end="\r")
-            time.sleep(1)
-            segundos += 1
+  horas = 0
+  minutos = 0
+  segundos = 0 
+  print('Amassa filhote!')
+  
+  try:
+  
+    while True:
+        print(f'{horas:02d}:{minutos:02d}:{segundos:02d}', end="\r")
+        time.sleep(1)
+        segundos += 1
 
 
-            if segundos == 60:
-                segundos = 0
-                minutos += 1
+        if segundos == 60:
+            segundos = 0
+            minutos += 1
 
-            if minutos == 60:
-                minutos = 0
-                horas += 1
-      except KeyboardInterrupt:
-         print("\nCronômetro Finalizado!")
+        if minutos == 60:
+            minutos = 0
+            horas += 1
+  except KeyboardInterrupt:
+      print("\nCronômetro Finalizado!")
 
 
-lista_de_tarefas = []
+lista_de_tarefas = carregar_tarefas()
 while True:
   try:
     menu = int(input("""Olá, senhor!
