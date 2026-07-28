@@ -11,8 +11,8 @@ def salvar_tarefa(lista_de_tarefas):
    # indent=2 faz o arquivo ficar quebrado em linhas e bonito de ler
    json.dump(lista_de_tarefas, arquivo, indent=2, ensure_ascii=False)
 
-def carrefar_tarefas():
-   # Seo arquivo tarefas.json existir...
+def carregar_tarefas():
+   # Se o arquivo tarefas.json existir...
    if os.path.exists("tarefas.json"):
      # Abre o arquivo em modo 'r' (read - leitura)
      with open("tarefas.json", "r", encoding="utf-8") as arquivo:
@@ -46,7 +46,10 @@ def cronometro ():
       print("\nCronômetro Finalizado!")
 
 
-lista_de_tarefas = carregar_tarefas()
+lista_de_tarefas_antiga = json.loads(carregar_tarefas())
+lista_de_tarefas = {}
+lista_de_tarefas.append(lista_de_tarefas_antiga)
+
 while True:
   try:
     menu = int(input("""Olá, senhor!
