@@ -102,3 +102,6 @@ while True: # Um loop infinito para o programa continuar a correr
     lista_de_tarefas.append(nova_tarefa)
     print("Tarefa adicionada!")
     print(lista_de_tarefas)
+
+usuario = {}
+usuario["email"] = "carlos@email.com"
